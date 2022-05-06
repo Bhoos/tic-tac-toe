@@ -65,7 +65,10 @@ function App() {
     const botTurn = turn;
     const response = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify(gameState),
+      body: JSON.stringify({
+        turn: gameState,
+        state: gameState,
+      }),
     });
     const resp = await response.json();
     console.log('Response', resp);
