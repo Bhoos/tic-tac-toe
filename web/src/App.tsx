@@ -66,7 +66,7 @@ function App() {
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify({
-        turn: gameState,
+        turn,
         state: gameState,
       }),
     });
