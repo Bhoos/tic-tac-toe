@@ -1,4 +1,5 @@
-const http = require('http');
+import http from 'http';
+import {mcts} from './mcts.js';
 
 const server = http.createServer((req, res) => {
   if (req.url) res.setHeader('Content-Type', 'application/json');
@@ -32,6 +33,7 @@ const server = http.createServer((req, res) => {
 
 function play(payload) {
   const { turn, state } = payload;
+  return mcts(payload.state, payload.turn);
   let row = -1;
   let col = -1;
   let tries = 0;
